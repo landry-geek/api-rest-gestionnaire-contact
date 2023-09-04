@@ -1,7 +1,7 @@
 const mysql = require('mysql2')
 
 const pool = mysql.createPool({
-    hots: 'localhost',
+    host: 'localhost',
     user: 'root',
     password: '',
     database: 'crud-react-node'
