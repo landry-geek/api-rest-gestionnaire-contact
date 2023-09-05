@@ -26,6 +26,21 @@ const postsController = {
                 status: "error"
             })
         }
+    },
+    create: async(req, res)=>{
+        try{
+            const {nom, email} = req.body
+            const sql = "INSERT INTO personnes (nom,email) VALUES (?,?)"
+            const [rows, fields] = await pool.query(sql,[nom,email])
+            res.json({
+                data: rows
+            })
+        }catch(error){
+            console.log(error)
+            res.json({
+                status: "error"
+            })
+        }
     }
 }
 
