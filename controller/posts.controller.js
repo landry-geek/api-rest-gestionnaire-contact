@@ -57,6 +57,20 @@ const postsController = {
                 status: "error"
             })
         }
+    },
+    delete: async(req, res)=>{
+        try{
+            const id = req.params.id
+            const [rows, fields] = await pool.query(`DELETE FROM personnes WHERE id=${id}`)
+            res.json({
+                data: rows
+            })
+        }catch(error){
+            console.log(error)
+            res.json({
+                status: "error"
+            })
+        }
     }
 }
 
